@@ -1,0 +1,57 @@
+@html.extend('layout', function() {
+        @html.block('content',function(){
+<div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>
+                            Categories
+
+                            <a href="cutegories/create" class="btn btn-default pull-right">Create New</a>
+                        </h2>
+                    </div>
+
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Post Count</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            @model.cutegories.forEach(function(item){
+                
+                                <tr>
+                                    <td>@item.name</td>
+                                    <td>1</td>
+                                    <td>
+                                        <a href="/cutegories/edit/@item.id" class="btn btn-xs btn-info">Edit</a>
+                                        <a href="/cutegories/delete/@item.id" data-method="DELETE" data-token="32Mxrb2s2QPyv3C1h4iYcbfZBT7PmU7Tfm9koxkk"
+                                            data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                              
+                            })
+                                 
+                            </tbody>
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+  </div>
+  
+})
+
+})
+
+    
