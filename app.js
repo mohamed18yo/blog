@@ -10,8 +10,20 @@ var postsRouter = require('./routes/posts');
 var tagsRouter = require('./routes/tags');
 var cutegoriesRouter = require('./routes/cutegories');
 var commentsRouter = require('./routes/comments');
+var admin= function(req,res,next){
+  if(req.session.user){
+    if(req.session.user.isAdmin){
+      next();
 
+    }else{
+      res.redirect('/')
+    }
+  }else{
+    res.redirect('/')
+  }
+};
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,20 +41,8 @@ app.use(function(req,res,next){
   next();
 })
 app.use('/', indexRouter);
-app.use(function(req,res,next){
-  if(req.session.user){
-    if(req.session.user.isAdmin){
-      next();
-
-    }else{
-      res.redirect('/')
-    }
-  }else{
-    res.redirect('/')
-  }
-})
-app.use('/users', usersRouter);
-app.use('/posts',postsRouter)
+app.use('/users', admin ,usersRouter);
+app.use('/posts', postsRouter)
 app.use('/tags',tagsRouter)
 app.use('/cutegories',cutegoriesRouter)
 app.use('/comments',commentsRouter)
