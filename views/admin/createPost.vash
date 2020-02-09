@@ -56,7 +56,9 @@
                         cols="50"
                         rows="10"
                         id="body"
-                      ></textarea>
+                      >
+                     
+                      </textarea>
 
                       <span class="help-block">
                         <strong></strong>
@@ -124,11 +126,21 @@
                         id="userId"
                         name="userId"
                       >
-                        @model.user.forEach(function(item){
-                           <option value="@item.id">@item.firsName @item.lastName</option >
+                           <option value="">@model.session.user.firsName </option >
                         })
                       
                      </select>
+                    @*  <select
+                        class="form-control"
+                        required="required"
+                        id="userId"
+                        name="userId"
+                      >
+                         @model.user.forEach(function(item){ 
+                           <option value="@item.id"> @item.firsName @item.lastName </option >
+                        })
+                      
+                     </select> *@
 
                       <span class="help-block">
                         <strong></strong>
