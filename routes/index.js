@@ -51,7 +51,7 @@ router.get('/login', function (req, res, next) {
 
 router.post('/login', async function (req, res, next) {
   let user = await db.User
-    .findOne({ where: { email: req.body.email } })
+    .findOne({ where: { email: req.body.email } });
 
   hasher({ password: req.body.password, salt: salt }, (err, password, salt, hash) => {
     // console.log("user.password " , user.password );

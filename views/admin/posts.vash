@@ -29,7 +29,6 @@
                             <tbody>
                              @model.posts.forEach(function(item){
                                   <tr>
-                                   
                                         <td>@item.title</td>
                                         <td>@item.body</td>
                                         <td>@item.User.firsName @item.User.lastName </td>                                   
@@ -49,7 +48,7 @@
                                                 data-confirm="Are you sure?" class="btn btn-xs btn-danger">Delete</a>
                                         </td>
                                 </tr>
-                              })
+                            })
                             </tbody>
                         </table>
 

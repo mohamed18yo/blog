@@ -10,6 +10,7 @@ var postsRouter = require('./routes/posts');
 var tagsRouter = require('./routes/tags');
 var cutegoriesRouter = require('./routes/cutegories');
 var commentsRouter = require('./routes/comments');
+
 var admin= function(req,res,next){
   if(req.session.user){
     if(req.session.user.isAdmin){
